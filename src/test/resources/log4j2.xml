@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+
+	<Properties>
+		<Property name="basePath">./logs</Property>
+	</Properties>
+	
+	
+  <Appenders>
+    <Console name="Console" target="SYSTEM_OUT">
+      <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+    </Console>
+    
+    <RollingFile name="File" fileName="${basePath}/automation.log" filePattern="${basePath}/automation-%d{yyyy-MM-dd}.log">
+     <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+      <SizeBasedTriggeringPolicy size="50000" />
+   </RollingFile>
+   
+ </Appenders>
+ 
+  
+  <Loggers>
+    <Root level="Info">  	<!-- Here you can use multiple log levels   All < Trace < Debug < Info < Warn < Error < Fatal < Off -->
+      <AppenderRef ref="File"/>         <!--  <AppenderRef ref="Console"/>   -->
+    </Root>
+  </Loggers>
+  
+  
+</Configuration>
+
+
+
+
+
+
+
+
+
+
+
+ <!-- <?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN"> -->
+
+ <!-- 
+	<Properties> 
+ -->
+	<!--  	<Property name="basePath">./logs</Property> -->
+	 <!-- Where we have to generate the log file inside the project ./ is representing the current project directory -->     
+
+ <!-- 	</Properties>
+	-->
+	<!-- we can generate the log files in the 2 different places, first one is in the console window can write all the log statements, but the problem is console window logs cannnot be shared with anyone, as soon as test case is run then another testcase is run then the log get disappeared    -->
+ 
+ <!--  <Appenders>
+    <Console name="Console" target="SYSTEM_OUT">
+      <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+    </Console> -->
+    
+    <!-- another one is rolling file, we can also generate the logs in the separate log file  -->
+ 
+ <!--    <RollingFile name="File" fileName="${basePath}/automation.log" filePattern="${basePath}/automation-%d{yyyy-MM-dd}.log"> -->
+    <!--  automation.log is name of the log file   -->
+ 
+ <!--     <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/> -->
+
+ <!--       <SizeBasedTriggeringPolicy size="50000" />  -->
+  <!-- size of the log file, if log file size is exceeded then new log file will get generated, old log file will be still be available  -->
+
+ <!--    </RollingFile>
+   </Appenders> -->
+ 
+ 
+ <!--  What type of log we have to generate and where we want to generate, we mostly use info log   --> 
+ 
+ <!--  <Loggers> -->
+   
+ <!--  <Root level="Info">  -->
+  	<!-- Here you can use multiple log levels   All < Trace < Debug < Info < Warn < Error < Fatal < Off -->
+                           <!--  If in the level info is given then info,warn, error and fatal logs will be displayed -->
+                            <!-- logger.warn -  If want to specify the warnings then can write warning statements  -->
+                             <!-- logger.error - If something got failed -->
+                              <!-- logger.fatal - If something got failed, which is completely blocker, not able to proceed further -->
+                              <!-- logger.debug If wants to get in details logs, even client and server communication msg also wants to capture -->
+  
+ <!--     <AppenderRef ref="File"/>  -->
+        <!-- here we decide generate console file or rolling file, for rolling we mention  ref="File" and for console ref="Console"   -->
+ 
+ <!--    </Root>
+  </Loggers>
+  
+</Configuration>
+  -->
+
+
